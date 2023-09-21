@@ -1,21 +1,29 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
-  <div class="card">
-    <img alt="real estate logo" src="./housepic.jpg">
-    <div class="card-content"> 
-      <h2>Two Pod Realty</h2> 
-      <p id="description">Real Estate Company Focused on delivering the best properties in the State College Area</p> 
+<html lang="en">
+  <div id ="card" class = "card">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Card Example</title>
+</head>
+<body>
+    <div class = "card">
+        <img src="https://www.mydomaine.com/thmb/CaWdFGvTH4-h1VvG6tukpKuU2lM=/3409x0/filters:no_upscale():strip_icc()/binary-4--583f06853df78c6f6a9e0b7a.jpeg"> 
+      
+        <div class="card-content"> 
+          <h4><b>Two Pod Real Estate Agency</b></h4>
+            <p id = 'description'> Real Estate Company Focused on delivering the best properties for college students at Penn State University in State College, PA</p> 
       <button class="details-button" id="detailsBtn">Details</button>
-    </div> 
-  </div> 
-  
-  <button id="btn">Duplicator</button>
+      </div>
+       </div> 
+</body> 
+  </div>
+  <button id ="btn">Duplicate</button>
   <button id="colorBtn">BGColorChanger</button>
   <button id="Headingbtn">HeadingChanger</button>
-  <button id="dltbtn">DeleteCard</button>
-</template>
+  <button id ="dltbtn">DeleteCard</button>
 
 <script>
 export default {
@@ -25,7 +33,7 @@ export default {
   },
   mounted() {
     document.querySelector('#btn').addEventListener('click', () => {
-      const clone = document.querySelector('.card').cloneNode(true); // Clone the whole card
+      const clone = document.querySelector('#card').cloneNode(true); // Clone the whole card
       document.body.appendChild(clone);
     });
     
@@ -47,17 +55,15 @@ export default {
       card.style.backgroundColor = '#' + randomColor();
     });
     
-    // HEADING CHANGER
     document.querySelector('#Headingbtn').addEventListener('click', () => {
       const title = document.querySelector('h2');
       title.innerText = "Super Pod 2 Realty";
     });
     
-    // Card delete
     document.querySelector('#dltbtn').addEventListener('click', () => {
       const cards = document.querySelectorAll('.card');
-      // Check if there are cards to delete
-      if (cards.length > 1) {
+      
+      if (cards.length > 2) {
         const lastCard = cards[cards.length - 1];
         lastCard.parentNode.removeChild(lastCard);
       }
